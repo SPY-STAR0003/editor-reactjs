@@ -2,8 +2,7 @@ import React from 'react';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { BlackCode, BlockQoute, Bold, BulletList, Code, DeleteMark, Enter, Italic, Line, OrderedList, Redu, Strike, Undo } from './icons';
-
-
+import Typography from '@tiptap/extension-typography';
 
 interface MenuBarProps {
   editor : any
@@ -16,22 +15,22 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
   }
 
   return (
-    <div className={"flex items-center bg-gray-100 p-2 space-x-2 rounded"}>
+    <div className={"flex flex-wrap items-center bg-gray-100 p-2 space-x-2 rounded"}>
       <Bold
         onClick={() => editor.chain().focus().toggleBold().run()}
-        classes={`${editor.isActive('bold') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('bold') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
       />
       <Italic
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        classes={`${editor.isActive('italic') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('italic') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
       />
       <Strike
         onClick={() => editor.chain().focus().toggleStrike().run()}
-        classes={`${editor.isActive('strike') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('strike') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
       />
       <Code
         onClick={() => editor.chain().focus().toggleCode().run()}
-        classes={`${editor.isActive('code') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('code') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
       />
       <DeleteMark
         onClick={() => editor.chain().focus().unsetAllMarks().clearNodes().run()}
@@ -39,19 +38,19 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
       />
       <BulletList
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        classes={`${editor.isActive('bulletList') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('bulletList') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
       />
       <OrderedList
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        classes={`${editor.isActive('orderedList') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('orderedList') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
       />
       <BlackCode
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        classes={`${editor.isActive('codeBlock') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('codeBlock') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
       />
       <BlockQoute
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        classes={`${editor.isActive('blockquote') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('blockquote') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
       />
       <Line
         onClick={() => editor.chain().focus().setHorizontalRule().run()}
@@ -72,43 +71,43 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
       
       <button
         onClick={() => editor.chain().focus().setParagraph().run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('paragraph') ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('paragraph') ? 'bg-gray-300/60 text-black' : ''}`}
       >
         P
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 1}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 1}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
         H1
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 2}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 2}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
         H2
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 3}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 3}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
         H3
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 4}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 4}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
         H4
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 5}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 5}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
         H5
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 6}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 6}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
         H6
       </button>
@@ -126,6 +125,7 @@ const App = () => {
           }
         },
       }),
+      Typography
     ],
     content: ``,
   })
