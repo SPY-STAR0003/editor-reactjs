@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.ProseMirror h1 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+.ProseMirror h2 {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+.ProseMirror h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+.ProseMirror h4 {
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.ProseMirror h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+.ProseMirror h6 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

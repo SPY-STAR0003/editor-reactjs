@@ -1,122 +1,116 @@
 import React from 'react';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import { Bold, Italic } from './icons';
+import { BlackCode, BlockQoute, Bold, BulletList, Code, DeleteMark, Enter, Italic, Line, OrderedList, Redu, Strike, Undo } from './icons';
+
+
 
 interface MenuBarProps {
   editor : any
 }
 
 const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
+
   if (!editor) {
     return null
   }
 
   return (
-    <div className={"flex bg-gray-100 p-4 space-x-2"}>
-        <Bold
-          onClick={() => editor.chain().focus().toggleBold().run()}
-          classes={`${editor.isActive('bold') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'}`}
-        />
-        <Italic
-          onClick={() => editor.chain().focus().toggleItalic().run()}
-          classes={`${editor.isActive('italic') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'}`}
-        />
-      <button
+    <div className={"flex items-center bg-gray-100 p-2 space-x-2 rounded"}>
+      <Bold
+        onClick={() => editor.chain().focus().toggleBold().run()}
+        classes={`${editor.isActive('bold') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <Italic
+        onClick={() => editor.chain().focus().toggleItalic().run()}
+        classes={`${editor.isActive('italic') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <Strike
         onClick={() => editor.chain().focus().toggleStrike().run()}
-        className={editor.isActive('strike') ? 'is-active' : ''}
-      >
-        strike
-      </button>
-      <button
+        classes={`${editor.isActive('strike') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <Code
         onClick={() => editor.chain().focus().toggleCode().run()}
-        className={editor.isActive('code') ? 'is-active' : ''}
-      >
-        code
-      </button>
-      <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
-        clear marks
-      </button>
-      <button onClick={() => editor.chain().focus().clearNodes().run()}>
-        clear nodes
-      </button>
+        classes={`${editor.isActive('code') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <DeleteMark
+        onClick={() => editor.chain().focus().unsetAllMarks().clearNodes().run()}
+        classes={`hover:bg-gray-300/60 hover:fill-gray-800 rounded fill-gray-700`}
+      />
+      <BulletList
+        onClick={() => editor.chain().focus().toggleBulletList().run()}
+        classes={`${editor.isActive('bulletList') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <OrderedList
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        classes={`${editor.isActive('orderedList') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <BlackCode
+        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
+        classes={`${editor.isActive('codeBlock') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <BlockQoute
+        onClick={() => editor.chain().focus().toggleBlockquote().run()}
+        classes={`${editor.isActive('blockquote') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <Line
+        onClick={() => editor.chain().focus().setHorizontalRule().run()}
+        classes={`hover:bg-gray-300/60 hover:fill-gray-800 rounded fill-gray-700`}
+      />
+      <Enter
+        onClick={() => editor.chain().focus().setHardBreak().run()}
+        classes={`hover:bg-gray-300/60 hover:fill-gray-800 rounded fill-gray-700`}
+      />
+      <Undo
+        onClick={() => editor.chain().focus().undo().run()}
+        classes={`hover:bg-gray-300/60 hover:fill-gray-800 !p-[6px] rounded fill-gray-700`}
+      />
+      <Redu
+        onClick={() => editor.chain().focus().redo().run()}
+        classes={`hover:bg-gray-300/60 hover:fill-gray-800 !p-[6px] rounded fill-gray-700`}
+      />
+      
       <button
         onClick={() => editor.chain().focus().setParagraph().run()}
-        className={editor.isActive('paragraph') ? 'is-active' : ''}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('paragraph') ? 'bg-gray-300/60 text-black' : ''}`}
       >
-        paragraph
+        P
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 1}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
-        h1
+        H1
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 2}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
-        h2
+        H2
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={editor.isActive('heading', { level: 3 }) ? 'is-active' : ''}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 3}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
-        h3
+        H3
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={editor.isActive('heading', { level: 4 }) ? 'is-active' : ''}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 4}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
-        h4
+        H4
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={editor.isActive('heading', { level: 5 }) ? 'is-active' : ''}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 5}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
-        h5
+        H5
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={editor.isActive('heading', { level: 6 }) ? 'is-active' : ''}
+        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 ${editor.isActive('heading', {level : 6}) ? 'bg-gray-300/60 text-black' : ''}`}
       >
-        h6
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={editor.isActive('bulletList') ? 'is-active' : ''}
-      >
-        bullet list
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={editor.isActive('orderedList') ? 'is-active' : ''}
-      >
-        ordered list
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        className={editor.isActive('codeBlock') ? 'is-active' : ''}
-      >
-        code block
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        className={editor.isActive('blockquote') ? 'is-active' : ''}
-      >
-        blockquote
-      </button>
-      <button onClick={() => editor.chain().focus().setHorizontalRule().run()}>
-        horizontal rule
-      </button>
-      <button onClick={() => editor.chain().focus().setHardBreak().run()}>
-        hard break
-      </button>
-      <button onClick={() => editor.chain().focus().undo().run()}>
-        undo
-      </button>
-      <button onClick={() => editor.chain().focus().redo().run()}>
-        redo
+        H6
       </button>
     </div>
   )
@@ -125,15 +119,25 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
 const App = () => {
   const editor = useEditor({
     extensions: [
-      StarterKit,
+      StarterKit.configure({
+        paragraph : {
+          HTMLAttributes : {
+            class : "indent-4"
+          }
+        },
+      }),
     ],
     content: ``,
   })
 
   return (
-    <div>
+    <div className={"p-4"}>
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} />
+      <EditorContent
+        className={"border outline-none border-gray-300 mt-8 mx-8 p-4 rounded"}
+        editor={editor}
+        
+      />
     </div>
   )
 }
