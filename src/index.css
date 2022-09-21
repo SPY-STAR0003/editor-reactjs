@@ -1,10 +1,13 @@
+.tiptap-container {
+  padding: 2rem;
+}
+
 .tiptap-keyboard-menu {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
   background-color: #e5e7ebd6;
-  margin: 2rem;
   padding: 8px;
   border-radius: 8px;
 }
@@ -43,12 +46,40 @@
   background-color: #d1d5db;
 }
 
+.tiptap-keyboard-menu-btn.smaller-tiptap-menu-btn {
+  width: 2.1rem;
+  height: 2.1rem;
+  padding: .2rem;
+}
+
 .tiptap-keyboard-menu-btn.small-tiptap-btn {
   padding: 8px;
 }
 
 .tiptap-keyboard-menu-btn.too-small-tiptap-btn {
   padding: 6px;
+}
+
+.tiptap-submit {
+  text-align: center;
+  margin: 0 2rem;
+}
+
+.tiptap-submit.tiptap-submit-style {
+  outline: none;
+  border: none;
+  padding: .6rem 1.4rem;
+  background-color: #374151;
+  color: white;
+  border-radius: .3rem;
+  font-family:  Vazirmatn, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tiptap-submit.tiptap-submit-style:hover {
+  background-color: black;
 }
 
 .ProseMirror {
@@ -80,9 +111,22 @@
   padding: .1rem 0;
 }
 
+.ProseMirror blockquote {
+  padding-right: 1rem !important;
+  border-right: 4px solid #d1d5db;
+}
+
 .ProseMirror code {
   background-color: #e5e7eba6;
   padding: .3rem;
+  border-radius: 2px;
+}
+
+.ProseMirror pre code {
+  background-color: #374151;
+  color: white;
+  padding: .3rem;
+  border-radius: 2px;
 }
 
 .ProseMirror h1 {
@@ -108,6 +152,10 @@
 .ProseMirror h6 {
   font-size: 1.1rem;
   font-weight: 600;
+}
+
+.ProseMirror em, .ProseMirror strong, .ProseMirror s {
+  padding: 0 !important;
 }
 
 .ProseMirror p.is-editor-empty:first-child::before {

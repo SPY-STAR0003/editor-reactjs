@@ -8,7 +8,7 @@ export const AlignLeft = ({classes, ...props}) => {
 
 export const Bold = ({classes, ...props}) => {
     return (
-        <svg {...props} className={`${classes ?? "fill-gray-400"} small-tiptap-btn tiptap-keyboard-menu-btn`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg {...props} className={`${classes ?? "fill-gray-400"} smaller-tiptap-menu-btn tiptap-keyboard-menu-btn`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M16.5,9.5A3.5,3.5,0,0,0,13,6H8.5a1,1,0,0,0-1,1V17a1,1,0,0,0,1,1H13a3.49,3.49,0,0,0,2.44-6A3.5,3.5,0,0,0,16.5,9.5ZM13,16H9.5V13H13a1.5,1.5,0,0,1,0,3Zm0-5H9.5V8H13a1.5,1.5,0,0,1,0,3Z"/>
         </svg>
     )
@@ -16,7 +16,7 @@ export const Bold = ({classes, ...props}) => {
 
 export const Italic = ({classes, ...props}) => {
     return (
-        <svg {...props} className={`${classes ?? "fill-gray-400"} small-tiptap-btn tiptap-keyboard-menu-btn`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg {...props} className={`${classes ?? "fill-gray-400"} smaller-tiptap-menu-btn tiptap-keyboard-menu-btn`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M17,6H11a1,1,0,0,0,0,2h1.52l-3.2,8H7a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2H11.48l3.2-8H17a1,1,0,0,0,0-2Z"/>
         </svg>
     )
@@ -112,7 +112,7 @@ export const Line = ({classes, ...props}) => {
 
 export const Enter = ({classes, ...props}) => {
     return (
-        <svg {...props} className={`${classes ?? "fill-gray-400"} small-tiptap-btn tiptap-keyboard-menu-btn`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <svg {...props} className={`${classes ?? "fill-gray-400"} smaller-tiptap-menu-btn tiptap-keyboard-menu-btn`} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M19,6a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H7.41l1.3-1.29A1,1,0,0,0,7.29,9.29l-3,3a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l3,3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L7.41,14H17a3,3,0,0,0,3-3V7A1,1,0,0,0,19,6Z"/>
         </svg>
     )
