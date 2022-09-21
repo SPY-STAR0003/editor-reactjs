@@ -8,6 +8,7 @@ import Lists from "./lists";
 import Line from "./line";
 import Reset from "./reset";
 import TextSize from "./size";
+import TextAlignment from "./alignment";
 
 const MenuBar = ({ editor }) => {
     if (!editor) {
@@ -23,6 +24,7 @@ const MenuBar = ({ editor }) => {
             <Line editor={editor} />
             <Lists editor={editor} />
             <Reset editor={editor} />
+            <TextAlignment editor={editor} />
             <TextSize editor={editor} />
         </div>
     )

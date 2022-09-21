@@ -1,6 +1,6 @@
 import { CenterAlign, JustifyAlign, LeftAlign, RightAlign } from './../../assets/icons';
 
-const TextAlignment = () => {
+const TextAlignment = ({editor}) => {
     return (
         <>
             <LeftAlign
