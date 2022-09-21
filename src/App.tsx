@@ -1,8 +1,10 @@
 import React from 'react';
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
-import { BlackCode, BlockQoute, Bold, BulletList, Code, DeleteMark, Enter, Italic, Line, OrderedList, Redu, Strike, Undo } from './icons';
+import { BlackCode, BlockQoute, Bold, BulletList, CenterAlign, Code, DeleteMark, Enter, Italic, JustifyAlign, LeftAlign, Line, OrderedList, Redu, RightAlign, Strike, Undo } from './icons';
 import Typography from '@tiptap/extension-typography';
+import TextAlign from '@tiptap/extension-text-align'
+import Placeholder from '@tiptap/extension-placeholder'
 
 interface MenuBarProps {
   editor : any
@@ -68,8 +70,24 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
         onClick={() => editor.chain().focus().redo().run()}
         classes={`hover:bg-gray-300/60 hover:fill-gray-800 !p-[6px] rounded fill-gray-700`}
       />
-      
-      <button
+      <LeftAlign
+        onClick={() => editor.chain().focus().setTextAlign('left').run()}
+        classes={`my-2 ${editor.isActive({ textAlign: 'left' }) ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <CenterAlign
+        onClick={() => editor.chain().focus().setTextAlign('center').run()}
+        classes={`my-2 ${editor.isActive({ textAlign: 'center' }) ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <RightAlign
+        onClick={() => editor.chain().focus().setTextAlign('right').run()}
+        classes={`my-2 ${editor.isActive({ textAlign: 'right' }) ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+      <JustifyAlign
+        onClick={() => editor.chain().focus().setTextAlign('justify').run()}
+        classes={`my-2 ${editor.isActive({ textAlign: 'justify' }) ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+      />
+            
+            <button
         onClick={() => editor.chain().focus().setParagraph().run()}
         className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('paragraph') ? 'bg-gray-300/60 text-black' : ''}`}
       >
@@ -111,6 +129,7 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
       >
         H6
       </button>
+      
     </div>
   )
 }
@@ -118,14 +137,24 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
 const App = () => {
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({
-        paragraph : {
-          HTMLAttributes : {
-            class : "indent-4"
-          }
-        },
+      StarterKit,
+      Typography,
+      TextAlign.configure({
+        types: ['heading', 'paragraph'],
+        defaultAlignment: 'right',
       }),
-      Typography
+      Placeholder.configure({
+        // Use a placeholder:
+        placeholder: 'متن خود را وارد کنید ...',
+        // Use different placeholders depending on the node type:
+        // placeholder: ({ node }) => {
+        //   if (node.type.name === 'heading') {
+        //     return 'What’s the title?'
+        //   }
+
+        //   return 'Can you add some further context?'
+        // },
+      }),
     ],
     content: ``,
   })
@@ -136,7 +165,6 @@ const App = () => {
       <EditorContent
         className={"border outline-none border-gray-300 mt-8 mx-8 p-4 rounded"}
         editor={editor}
-        
       />
     </div>
   )
