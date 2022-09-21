@@ -6,33 +6,30 @@ import Typography from '@tiptap/extension-typography';
 import TextAlign from '@tiptap/extension-text-align'
 import Placeholder from '@tiptap/extension-placeholder'
 
-interface MenuBarProps {
-  editor : any
-}
 
-const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
+const MenuBar = ({ editor }) => {
 
   if (!editor) {
     return null
   }
 
   return (
-    <div className={"flex flex-wrap items-center bg-gray-100 p-2 space-x-2 rounded"}>
+    <div className={"tiptap-keyboard-menu"}>
       <Bold
         onClick={() => editor.chain().focus().toggleBold().run()}
-        classes={`my-2 ${editor.isActive('bold') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('bold') ? 'active' : ''}`}
       />
       <Italic
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        classes={`my-2 ${editor.isActive('italic') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('italic') ? 'active' : ''}`}
       />
       <Strike
         onClick={() => editor.chain().focus().toggleStrike().run()}
-        classes={`my-2 ${editor.isActive('strike') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('strike') ? 'active' : ''}`}
       />
       <Code
         onClick={() => editor.chain().focus().toggleCode().run()}
-        classes={`my-2 ${editor.isActive('code') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('code') ? 'active' : ''}`}
       />
       <DeleteMark
         onClick={() => editor.chain().focus().unsetAllMarks().clearNodes().run()}
@@ -40,19 +37,19 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
       />
       <BulletList
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        classes={`my-2 ${editor.isActive('bulletList') ? 'bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('bulletList') ? 'active' : ''}`}
       />
       <OrderedList
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        classes={`my-2 ${editor.isActive('orderedList') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('orderedList') ? 'active' : ''}`}
       />
       <BlackCode
         onClick={() => editor.chain().focus().toggleCodeBlock().run()}
-        classes={`my-2 ${editor.isActive('codeBlock') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('codeBlock') ? 'active' : ''}`}
       />
       <BlockQoute
         onClick={() => editor.chain().focus().toggleBlockquote().run()}
-        classes={`my-2 ${editor.isActive('blockquote') ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive('blockquote') ? 'active' : ''}`}
       />
       <Line
         onClick={() => editor.chain().focus().setHorizontalRule().run()}
@@ -72,60 +69,60 @@ const MenuBar : React.FC<MenuBarProps> = ({ editor }) => {
       />
       <LeftAlign
         onClick={() => editor.chain().focus().setTextAlign('left').run()}
-        classes={`my-2 ${editor.isActive({ textAlign: 'left' }) ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive({ textAlign: 'left' }) ? 'active' : ''}`}
       />
       <CenterAlign
         onClick={() => editor.chain().focus().setTextAlign('center').run()}
-        classes={`my-2 ${editor.isActive({ textAlign: 'center' }) ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive({ textAlign: 'center' }) ? 'active' : ''}`}
       />
       <RightAlign
         onClick={() => editor.chain().focus().setTextAlign('right').run()}
-        classes={`my-2 ${editor.isActive({ textAlign: 'right' }) ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive({ textAlign: 'right' }) ? 'active' : ''}`}
       />
       <JustifyAlign
         onClick={() => editor.chain().focus().setTextAlign('justify').run()}
-        classes={`my-2 ${editor.isActive({ textAlign: 'justify' }) ? 'hover:fill-gray-800 bg-gray-300/60 fill-gray-800 rounded' : 'fill-gray-700'} hover:bg-gray-300/60`}
+        classes={`my-2 ${editor.isActive({ textAlign: 'justify' }) ? 'active' : ''}`}
       />
             
-            <button
+      <button
         onClick={() => editor.chain().focus().setParagraph().run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('paragraph') ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`tiptap-menu-btn ${editor.isActive('paragraph') ? 'active' : ''}`}
       >
         P
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 1}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`tiptap-menu-btn ${editor.isActive('heading', {level : 1}) ? 'active' : ''}`}
       >
         H1
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 2}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`tiptap-menu-btn ${editor.isActive('heading', {level : 2}) ? 'active' : ''}`}
       >
         H2
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 3}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`tiptap-menu-btn ${editor.isActive('heading', {level : 3}) ? 'active' : ''}`}
       >
         H3
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 4 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 4}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`tiptap-menu-btn ${editor.isActive('heading', {level : 4}) ? 'active' : ''}`}
       >
         H4
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 5 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 5}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`tiptap-menu-btn ${editor.isActive('heading', {level : 5}) ? 'active' : ''}`}
       >
         H5
       </button>
       <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 6 }).run()}
-        className={`hover:bg-gray-300/60 text-sm font-bold text-gray-600 rounded w-8 h-8 my-2 ${editor.isActive('heading', {level : 6}) ? 'bg-gray-300/60 text-black' : ''}`}
+        className={`tiptap-menu-btn ${editor.isActive('heading', {level : 6}) ? 'active' : ''}`}
       >
         H6
       </button>
