@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import './index.css'
 
 // components
-import App from "./app";
+import App from "./components/editor";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
